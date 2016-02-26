@@ -20,10 +20,10 @@ import java.io.IOException;
  */
 public class EventManagerServer {
 
-    public static void syncLightningNew(EntityThunderBolt parEnt) {
+    public static void syncThunderBolt(EntityThunderBolt parEnt) {
         NBTTagCompound data = new NBTTagCompound();
-        data.setString("packetCommand", "WeatherData");
-        data.setString("command", "syncLightningNew");
+        data.setString("packetCommand", "ThunderBolt");
+        data.setString("command", "syncThunderBolt");
         NBTTagCompound nbt = new NBTTagCompound();
         nbt.setInteger("posX", MathHelper.floor_double(parEnt.posX/* * 32.0D*/));
         nbt.setInteger("posY", MathHelper.floor_double(parEnt.posY/* * 32.0D*/));
@@ -31,7 +31,7 @@ public class EventManagerServer {
         nbt.setInteger("entityID", parEnt.getEntityId());
         data.setTag("data", nbt);
         ThunderstoneMod.eventChannel.sendToDimension(getNBTPacket(data, ThunderstoneMod.eventChannelName), FMLClientHandler.instance().getClient().theWorld.provider.getDimensionId());
-        FMLInterModComms.sendRuntimeMessage(ThunderstoneMod.instance, Reference.MOD_ID, "thunderstone.thunderbolt", data);
+//        FMLInterModComms.sendRuntimeMessage(ThunderstoneMod.instance, Reference.MOD_ID, "thunderstone.thunderbolt", data);
     }
 
     public static FMLProxyPacket getNBTPacket(NBTTagCompound parNBT, String parChannel) {

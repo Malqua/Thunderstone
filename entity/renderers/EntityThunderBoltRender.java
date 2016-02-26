@@ -10,7 +10,6 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-import scala.Console;
 
 import java.util.Random;
 
@@ -20,10 +19,11 @@ public class EntityThunderBoltRender extends Render<EntityThunderBolt> {
         super(renderManager);
     }
 
+    @Override
     public void doRender(EntityThunderBolt entity, double x, double y, double z, float entityYaw, float partialTicks) {
 //        super.doRender(entity, x, y, z, entityYaw, partialTicks);
 
-        Console.println("RENDERING BITCH");
+        System.out.println("RENDERING BITCH");
 
         Tessellator tessellator = Tessellator.getInstance();
         WorldRenderer worldrenderer = tessellator.getWorldRenderer();

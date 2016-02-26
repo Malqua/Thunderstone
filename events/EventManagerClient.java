@@ -42,7 +42,7 @@ public class EventManagerClient {
                 ent.rotationPitch = 0.0F;
                 ent.setEntityId(nbt.getInteger("entityID"));
                 getWorld().addWeatherEffect(ent);
-
+                System.out.println("SYNCING A LIGHTNING BOLT FOR THE CLIENT");
                 break;
             default:
                 return;

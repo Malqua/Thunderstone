@@ -1,12 +1,9 @@
 package com.malqua.thunderstone.items;
 
 import com.malqua.thunderstone.entity.EntityThunderBolt;
-import com.malqua.thunderstone.events.EventManagerClient;
 import com.malqua.thunderstone.events.EventManagerServer;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -42,9 +39,9 @@ public class superTestItem extends Item {
 
                     if(!world.isRemote){
                         EntityThunderBolt bolt = new EntityThunderBolt(world, 0D,0D,0D);
-                        bolt.setLocationAndAngles(bp.getX(), bp.getY(), bp.getZ(), 0, 0.0f);
+                        bolt.setLocationAndAngles(bp.getX(), bp.getY()+1, bp.getZ(), 0, 0.0f);
                         world.addWeatherEffect(bolt);
-                        EventManagerServer.syncLightningNew(bolt);
+                        EventManagerServer.syncThunderBolt(bolt);
                     }
 
                     return stack;

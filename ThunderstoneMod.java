@@ -1,5 +1,6 @@
 package com.malqua.thunderstone;
 
+import com.malqua.thunderstone.events.EventHandlerPacket;
 import com.malqua.thunderstone.init.ThunderstoneEntities;
 import com.malqua.thunderstone.init.ThunderstoneItems;
 import com.malqua.thunderstone.proxy.CommonProxy;
@@ -29,7 +30,7 @@ public class ThunderstoneMod {
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent e){
         instance = this;
-//        eventChannel.register(new EventHandlerPacket());
+        eventChannel.register(new EventHandlerPacket());
         ThunderstoneItems.init();
         ThunderstoneItems.register();
         ThunderstoneEntities.init();
