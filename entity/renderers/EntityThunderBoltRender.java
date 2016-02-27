@@ -15,15 +15,11 @@ import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class EntityThunderBoltRender extends Render<EntityThunderBolt> {
-    protected EntityThunderBoltRender(RenderManager renderManager) {
+        public EntityThunderBoltRender(RenderManager renderManager) {
         super(renderManager);
     }
 
-    @Override
-    public void doRender(EntityThunderBolt entity, double x, double y, double z, float entityYaw, float partialTicks) {
-//        super.doRender(entity, x, y, z, entityYaw, partialTicks);
-
-        System.out.println("RENDERING BITCH");
+        public void doRender(EntityThunderBolt entity, double x, double y, double z, float entityYaw, float partialTicks) {
 
         Tessellator tessellator = Tessellator.getInstance();
         WorldRenderer worldrenderer = tessellator.getWorldRenderer();
@@ -75,10 +71,6 @@ public class EntityThunderBoltRender extends Render<EntityThunderBolt> {
                     }
 
                     worldrenderer.begin(5, DefaultVertexFormats.POSITION_COLOR);
-//                    float f = 0.5F;
-//                    float f1 = 0.45F;
-//                    float f2 = 0.45F;
-//                    float f3 = 0.5F;
                     double d6 = 0.1D + (double) k1 * 0.2D;
 
                     if (j == 0) {
@@ -114,11 +106,12 @@ public class EntityThunderBoltRender extends Render<EntityThunderBolt> {
                             d11 += d7 * 2.0D;
                         }
 
-//                        worldrenderer.pos(d10 + d2, y + (double) (i1 * 16), d11 + d3).color(0.45F, 0.45F, 0.5F, 0.3F).endVertex();
-//                        worldrenderer.pos(d8 + d4, y + (double) ((i1 + 1) * 16), d9 + d5).color(0.45F, 0.45F, 0.5F, 0.3F).endVertex();
+                        float r = 0;
+                        float g = 0.25f;
+                        float b = 1;
 
-                        worldrenderer.pos(d10 + d2, y + (double) (i1 * 16), d11 + d3).color(1F, 0.45F, 0.5F, 0.3F).endVertex();
-                        worldrenderer.pos(d8 + d4, y + (double) ((i1 + 1) * 16), d9 + d5).color(1F, 0.45F, 0.5F, 0.3F).endVertex();
+                        worldrenderer.pos(d10 + d2, y + (double) (i1 * 16), d11 + d3).color(r,g,b, 0.3F).endVertex();
+                        worldrenderer.pos(d8 + d4, y + (double) ((i1 + 1) * 16), d9 + d5).color(r,g,b, 0.3F).endVertex();
                     }
 
                     tessellator.draw();

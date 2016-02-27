@@ -1,7 +1,7 @@
 package com.malqua.thunderstone.init;
 
 import com.malqua.thunderstone.Reference;
-import com.malqua.thunderstone.items.superTestItem;
+import com.malqua.thunderstone.items.ItemThunderWand;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.model.ModelResourceLocation;
 import net.minecraft.item.Item;
@@ -12,18 +12,21 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
  */
 public class ThunderstoneItems {
 
-    public static Item test_item;
+    public static Item thunder_dust;
+    public static Item thunderstone_ingot;
+
+    public static Item thunder_wand;
 
     public static void init(){
-        test_item = new superTestItem().setUnlocalizedName("test_item");
+        thunder_wand = new ItemThunderWand().setUnlocalizedName("thunder_wand");
     }
 
     public static void register(){
-        GameRegistry.registerItem(test_item, test_item.getUnlocalizedName().substring(5));
+        GameRegistry.registerItem(thunder_wand, thunder_wand.getUnlocalizedName().substring(5));
     }
 
     public static void registerRenders(){
-        registerRender(test_item);
+        registerRender(thunder_wand);
     }
 
     public static void registerRender(Item item){

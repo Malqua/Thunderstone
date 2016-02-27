@@ -15,8 +15,8 @@ import scala.Console;
 /**
  * Created by Malqua on 2/25/2016.
  */
-public class superTestItem extends Item {
-    public superTestItem(){
+public class ItemThunderWand extends Item {
+    public ItemThunderWand(){
         super();
     }
 
@@ -40,7 +40,7 @@ public class superTestItem extends Item {
                     if(!world.isRemote){
                         EntityThunderBolt bolt = new EntityThunderBolt(world, 0D,0D,0D);
                         bolt.setLocationAndAngles(bp.getX(), bp.getY()+1, bp.getZ(), 0, 0.0f);
-                        world.addWeatherEffect(bolt);
+//                        world.addWeatherEffect(bolt);
                         EventManagerServer.syncThunderBolt(bolt);
                     }
 
