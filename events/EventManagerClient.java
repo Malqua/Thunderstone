@@ -28,8 +28,6 @@ public class EventManagerClient {
                 int posYS = nbt.getInteger("posY");
                 int posZS = nbt.getInteger("posZ");
 
-                //Weather.dbg("uhhh " + parNBT);
-
                 double posX = (double)posXS;// / 32D;
                 double posY = (double)posYS;// / 32D;
                 double posZ = (double)posZS;// / 32D;
@@ -42,6 +40,7 @@ public class EventManagerClient {
                 ent.rotationPitch = 0.0F;
                 ent.setEntityId(nbt.getInteger("entityID"));
                 getWorld().addWeatherEffect(ent);
+//                getWorld().weatherEffects.add(ent);
                 break;
             default:
                 return;

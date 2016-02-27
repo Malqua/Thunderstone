@@ -1,6 +1,5 @@
 package com.malqua.thunderstone.events;
 
-import com.malqua.thunderstone.Reference;
 import com.malqua.thunderstone.ThunderstoneMod;
 import com.malqua.thunderstone.entity.EntityThunderBolt;
 import io.netty.buffer.ByteBuf;
@@ -9,11 +8,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.MathHelper;
 import net.minecraftforge.fml.client.FMLClientHandler;
-import net.minecraftforge.fml.common.event.FMLInterModComms;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.internal.FMLProxyPacket;
-
-import java.io.IOException;
 
 /**
  * Created by Malqua on 2/26/2016.
@@ -30,7 +26,8 @@ public class EventManagerServer {
         nbt.setInteger("posZ", MathHelper.floor_double(parEnt.posZ/* * 32.0D*/));
         nbt.setInteger("entityID", parEnt.getEntityId());
         data.setTag("data", nbt);
-        ThunderstoneMod.eventChannel.sendToDimension(getNBTPacket(data, ThunderstoneMod.eventChannelName), FMLClientHandler.instance().getClient().theWorld.provider.getDimensionId());
+        ThunderstoneMod.eventChannel.sendToDimension(getNBTPacket(data, ThunderstoneMod.eventChannelName),
+                parEnt.worldObj.provider.getDimensionId());
 //        FMLInterModComms.sendRuntimeMessage(ThunderstoneMod.instance, Reference.MOD_ID, "thunderstone.thunderbolt", data);
     }
 

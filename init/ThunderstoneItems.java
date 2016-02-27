@@ -14,6 +14,7 @@ public class ThunderstoneItems {
 
     public static Item thunder_dust;
     public static Item thunderstone_ingot;
+    public static Item thunderstone_gem;
 
     public static Item thunder_wand;
 
