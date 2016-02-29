@@ -1,9 +1,13 @@
 package com.malqua.thunderstone;
 
 import com.malqua.thunderstone.events.EventHandlerPacket;
+import com.malqua.thunderstone.init.ThunderstoneBlocks;
 import com.malqua.thunderstone.init.ThunderstoneEntities;
 import com.malqua.thunderstone.init.ThunderstoneItems;
+import com.malqua.thunderstone.items.ThunderstoneCreativeTab;
 import com.malqua.thunderstone.proxy.CommonProxy;
+import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.item.Item;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -20,6 +24,9 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class ThunderstoneMod {
 
     public static ThunderstoneMod instance;
+    public static String TEXTURE_PATH = Reference.MOD_ID + ":textures/items/";
+
+    public static CreativeTabs tabs = new ThunderstoneCreativeTab("Thunderstone");
 
     @SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.SERVER_PROXY_CLASS)
     public static CommonProxy proxy;
@@ -34,6 +41,8 @@ public class ThunderstoneMod {
         ThunderstoneItems.init();
         ThunderstoneItems.register();
         ThunderstoneEntities.init();
+        ThunderstoneBlocks.init();
+        ThunderstoneBlocks.register();
     }
 
     @Mod.EventHandler

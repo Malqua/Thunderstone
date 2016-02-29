@@ -1,6 +1,7 @@
 package com.malqua.thunderstone.events;
 
 import com.malqua.thunderstone.entity.EntityThunderBolt;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.client.FMLClientHandler;
@@ -21,16 +22,16 @@ public class EventManagerClient {
         String command = parNBT.getString("command");
 
         switch(command){
-            case "syncThunderBolt":
+            case "syncThunderBolt": {
                 NBTTagCompound nbt = parNBT.getCompoundTag("data");
 
                 int posXS = nbt.getInteger("posX");
                 int posYS = nbt.getInteger("posY");
                 int posZS = nbt.getInteger("posZ");
 
-                double posX = (double)posXS;// / 32D;
-                double posY = (double)posYS;// / 32D;
-                double posZ = (double)posZS;// / 32D;
+                double posX = (double) posXS;// / 32D;
+                double posY = (double) posYS;// / 32D;
+                double posZ = (double) posZS;// / 32D;
 
                 EntityThunderBolt ent = new EntityThunderBolt(getWorld(), posX, posY, posZ);
                 ent.serverPosX = posXS;
@@ -40,8 +41,29 @@ public class EventManagerClient {
                 ent.rotationPitch = 0.0F;
                 ent.setEntityId(nbt.getInteger("entityID"));
                 getWorld().addWeatherEffect(ent);
-//                getWorld().weatherEffects.add(ent);
                 break;
+            }
+            case "syncLightningBolt": {
+                NBTTagCompound nbt = parNBT.getCompoundTag("data");
+
+                int posXS = nbt.getInteger("posX");
+                int posYS = nbt.getInteger("posY");
+                int posZS = nbt.getInteger("posZ");
+
+                double posX = (double) posXS;// / 32D;
+                double posY = (double) posYS;// / 32D;
+                double posZ = (double) posZS;// / 32D;
+
+                EntityLightningBolt ent = new EntityLightningBolt(getWorld(), posX, posY, posZ);
+                ent.serverPosX = posXS;
+                ent.serverPosY = posYS;
+                ent.serverPosZ = posZS;
+                ent.rotationYaw = 0.0F;
+                ent.rotationPitch = 0.0F;
+                ent.setEntityId(nbt.getInteger("entityID"));
+                getWorld().addWeatherEffect(ent);
+                break;
+            }
             default:
                 return;
         }

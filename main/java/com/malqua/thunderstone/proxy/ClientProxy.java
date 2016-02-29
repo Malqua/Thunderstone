@@ -1,5 +1,6 @@
 package com.malqua.thunderstone.proxy;
 
+import com.malqua.thunderstone.init.ThunderstoneBlocks;
 import com.malqua.thunderstone.init.ThunderstoneEntities;
 import com.malqua.thunderstone.init.ThunderstoneItems;
 
@@ -11,5 +12,6 @@ public class ClientProxy extends CommonProxy{
     public void registerRenders(){
         ThunderstoneItems.registerRenders();
         ThunderstoneEntities.registerRenders();
+        ThunderstoneBlocks.registerRenders();
     }
 }

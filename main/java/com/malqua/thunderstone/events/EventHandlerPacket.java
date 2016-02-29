@@ -22,6 +22,9 @@ public class EventHandlerPacket {
             if(packetCommand.equals("ThunderBolt")){
                 EventManagerClient.nbtSyncFromServer(nbt);
             }
+            if(packetCommand.equals("LightningBolt")){
+                EventManagerClient.nbtSyncFromServer(nbt);
+            }
         }catch(Exception ex){
             ex.printStackTrace();
         }

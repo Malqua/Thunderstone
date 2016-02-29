@@ -1,0 +1,7 @@
+{
+    "variants":{
+        "normal":{
+            "model": "mal_ts:thunderstone_ore"
+        }
+    }
+}

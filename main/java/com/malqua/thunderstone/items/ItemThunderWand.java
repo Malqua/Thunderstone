@@ -4,6 +4,7 @@ import com.malqua.thunderstone.entity.EntityThunderBolt;
 import com.malqua.thunderstone.events.EventManagerServer;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -22,6 +23,7 @@ public class ItemThunderWand extends Item {
     }
 
     private static double boltRange = 25.0;
+    protected boolean debugBolts;
 
     public ItemStack onItemRightClick(ItemStack stack, World world, EntityPlayer player){
 
@@ -45,15 +47,29 @@ public class ItemThunderWand extends Item {
                         return stack;
                     }
 
-                    IBlockState blockState = world.getBlockState(bp);
-                    Block block = blockState.getBlock();
+//                    IBlockState blockState = world.getBlockState(bp);
+//                    Block block = blockState.getBlock();
 
                     if(!world.isRemote){
-                        EntityThunderBolt bolt = new EntityThunderBolt(world, 0D,0D,0D);
-                        bolt.setLocationAndAngles(bp.getX(), bp.getY()+1, bp.getZ(), 0, 0.0f);
-//                        world.addWeatherEffect(bolt);
-                        world.weatherEffects.add(bolt);
-                        EventManagerServer.syncThunderBolt(bolt);
+                        if(debugBolts){
+                            EntityLightningBolt bolt = new EntityLightningBolt(world, 0D,0D,0D);
+                            bolt.setLocationAndAngles(bp.getX(), bp.getY()+1, bp.getZ(), 0, 0.0f);
+
+                            //CLIENT VISUAL, DOES NOTHING REALLY
+                            world.weatherEffects.add(bolt);
+
+                            //SERVER BOLT, DOES THE HARD WORK
+                            EventManagerServer.syncLightningBolt(bolt);
+                        }else{
+                            EntityThunderBolt bolt = new EntityThunderBolt(world, 0D,0D,0D);
+                            bolt.setLocationAndAngles(bp.getX(), bp.getY()+1, bp.getZ(), 0, 0.0f);
+
+                            //CLIENT VISUAL, DOES NOTHING REALLY
+                            world.weatherEffects.add(bolt);
+
+                            //SERVER BOLT, DOES THE HARD WORK
+                            EventManagerServer.syncThunderBolt(bolt);
+                        }
                     }
 
                     return stack;
