@@ -2,6 +2,7 @@ package com.malqua.thunderstone.init;
 
 import com.malqua.thunderstone.Reference;
 import com.malqua.thunderstone.ThunderstoneMod;
+import com.malqua.thunderstone.items.ItemThunderSword;
 import com.malqua.thunderstone.items.ItemThunderWand;
 import com.malqua.thunderstone.items.ItemThunderWandDebug;
 import net.minecraft.client.Minecraft;
@@ -28,7 +29,7 @@ public class ThunderstoneItems {
         thunder_dust = new Item().setUnlocalizedName("thunder_dust");
         thunder_coatedIngot = new Item().setUnlocalizedName("thunder_coatedIngot");
         thunder_ingot = new Item().setUnlocalizedName("thunder_ingot");
-        thunder_sword = new ItemSword(Item.ToolMaterial.EMERALD).setUnlocalizedName("thunder_sword");
+        thunder_sword = new ItemThunderSword(                           Item.ToolMaterial.EMERALD).setUnlocalizedName("thunder_sword");
 
         thunder_wand = new ItemThunderWand().setUnlocalizedName("thunder_wand");
         thunder_wandDebug = new ItemThunderWandDebug().setUnlocalizedName("thunder_wandDebug");
