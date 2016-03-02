@@ -1,14 +1,13 @@
 package com.malqua.thunderstone.events;
 
 import com.malqua.thunderstone.ThunderstoneMod;
-import com.malqua.thunderstone.entity.EntityThunderBolt;
+import com.malqua.thunderstone.entity.weather.EntityThunderBolt;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.MathHelper;
-import net.minecraftforge.fml.client.FMLClientHandler;
 import net.minecraftforge.fml.common.network.ByteBufUtils;
 import net.minecraftforge.fml.common.network.internal.FMLProxyPacket;
 

@@ -1,4 +1,4 @@
-package com.malqua.thunderstone.entity;
+package com.malqua.thunderstone.entity.weather;
 
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.world.World;

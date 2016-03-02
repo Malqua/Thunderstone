@@ -1,9 +1,7 @@
 package com.malqua.thunderstone.items;
 
-import com.malqua.thunderstone.entity.EntityThunderBolt;
+import com.malqua.thunderstone.entity.weather.EntityThunderBolt;
 import com.malqua.thunderstone.events.EventManagerServer;
-import net.minecraft.block.Block;
-import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;

@@ -1,6 +1,6 @@
-package com.malqua.thunderstone.entity.renderers;
+package com.malqua.thunderstone.entity.weather.renderer;
 
-import com.malqua.thunderstone.entity.EntityThunderBolt;
+import com.malqua.thunderstone.entity.weather.EntityThunderBolt;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraftforge.fml.client.registry.IRenderFactory;

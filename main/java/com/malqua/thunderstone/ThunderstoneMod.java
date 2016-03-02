@@ -24,7 +24,7 @@ import net.minecraftforge.fml.common.network.NetworkRegistry;
 public class ThunderstoneMod {
 
     public static ThunderstoneMod instance;
-    public static String TEXTURE_PATH = Reference.MOD_ID + ":textures/items/";
+    public static String TEXTURE_PATH = Reference.MOD_ID + ":textures/";
 
     public static CreativeTabs tabs = new ThunderstoneCreativeTab("Thunderstone");
 

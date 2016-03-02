@@ -1,6 +1,6 @@
 package com.malqua.thunderstone.events;
 
-import com.malqua.thunderstone.entity.EntityThunderBolt;
+import com.malqua.thunderstone.entity.weather.EntityThunderBolt;
 import net.minecraft.entity.effect.EntityLightningBolt;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
