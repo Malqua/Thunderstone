@@ -33,4 +33,6 @@ public class ClientProxy extends CommonProxy{
 
         Minecraft.getMinecraft().effectRenderer.addEffect(particle);
     }
+
+
 }

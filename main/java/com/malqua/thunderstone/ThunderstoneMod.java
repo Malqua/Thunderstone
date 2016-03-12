@@ -1,5 +1,6 @@
 package com.malqua.thunderstone;
 
+import com.malqua.thunderstone.events.EventHandlerFML;
 import com.malqua.thunderstone.events.EventHandlerPacket;
 import com.malqua.thunderstone.init.ThunderstoneBlocks;
 import com.malqua.thunderstone.init.ThunderstoneEntities;
@@ -8,6 +9,8 @@ import com.malqua.thunderstone.items.ThunderstoneCreativeTab;
 import com.malqua.thunderstone.proxy.CommonProxy;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
@@ -38,6 +41,7 @@ public class ThunderstoneMod {
     public void preInit(FMLPreInitializationEvent e){
         instance = this;
         eventChannel.register(new EventHandlerPacket());
+        MinecraftForge.EVENT_BUS.register(new EventHandlerFML());
         ThunderstoneItems.init();
         ThunderstoneItems.register();
         ThunderstoneEntities.init();
