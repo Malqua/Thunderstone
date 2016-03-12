@@ -10,13 +10,16 @@ import net.minecraft.util.Vec3i;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Malqua on 3/11/2016.
  */
 public class ServerTickHandler {
 
+    private static int id = 0;
     public static void OnTickInGame(){
         if (FMLCommonHandler.instance() == null || FMLCommonHandler.instance().getMinecraftServerInstance() == null)
         {
@@ -25,20 +28,27 @@ public class ServerTickHandler {
 
         World world = FMLCommonHandler.instance().getMinecraftServerInstance().worldServerForDimension(0);
 
-        List<Entity> weatherEffects = world.weatherEffects;
+        List<Entity> weatherEffects = new ArrayList<Entity>();
+        weatherEffects.addAll(world.weatherEffects);
+
         weatherEffects.removeIf(entity -> !(entity instanceof EntityLightningBolt));
         for (int i = 0; i < weatherEffects.size(); i++){
-            System.out.println("Is vanilla lightning bolt");
             Entity e = weatherEffects.get(i);
-
+            System.out.println(e.hashCode());
+            if(id == e.hashCode()){
+                System.out.println(" == " + id);
+                continue;
+            }
             BlockPos pos = e.getPosition();
             GenerateOre(world, pos);
+            id = e.hashCode();
         }
     }
 
     private static void GenerateOre(World world, BlockPos pos) {
         BlockPos bp = pos;
-        if (world.getBlockState(bp).getBlock().getMaterial() == Material.air && Blocks.fire.canPlaceBlockAt(world, bp))
+        //todo: config for which blocks cannot be replaced
+        if (world.getBlockState(bp.add(0,-1,0)).getBlock().getMaterial() == Material.air && Blocks.fire.canPlaceBlockAt(world, bp))
         {
             return;
         }
